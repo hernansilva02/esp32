@@ -1,0 +1,2 @@
+source /home/hernan/esp32/wifi/build/bootloader/gdbinit/symbols
+source /home/hernan/esp32/wifi/build/bootloader/gdbinit/connect
