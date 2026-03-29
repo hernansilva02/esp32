@@ -1,0 +1,2 @@
+source /home/hernan/esp32/ticks_test/build/bootloader/gdbinit/symbols
+source /home/hernan/esp32/ticks_test/build/bootloader/gdbinit/connect
