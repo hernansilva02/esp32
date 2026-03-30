@@ -10,6 +10,7 @@
 #include "freertos/task.h"
 #include <assert.h>
 #include <stdint.h>
+#include <stdio.h>
 
 #define RECORDS_LEN 5
 #define LED_GPIO GPIO_NUM_2
@@ -56,8 +57,17 @@ void scanner() {
     uint16_t nm = RECORDS_LEN;
     wifi_ap_record_t records[nm];
     ESP_ERROR_CHECK(esp_wifi_scan_get_ap_records(&nm, records));
+    // Print bssids
+    int records_size = sizeof(records[0].bssid) / sizeof(uint8_t);
+    printf("MAC:");
+    printf("Record size - 1 is: %d\n", records_size - 1);
     for (uint8_t i = 0; i < RECORDS_LEN; i++) {
-        ESP_LOGI(TAG, "SSID: %s\nMAC: %s\n\n\n", records[i].ssid, records[i].bssid);
+        printf("SSID: %s\n", (char*)records[i].ssid);
+        printf("MAC: ");
+        for (int j = 0; j < records_size - 1; j++) {
+            printf("%02X:", records[0].bssid[j]);
+        }
+        printf("%02X\n\n\n", records[i].bssid[records_size - 1]);
     }
 }
 
