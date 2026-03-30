@@ -1,2 +1,0 @@
-source /home/hernan/esp32/blink_test/build/gdbinit/symbols
-source /home/hernan/esp32/blink_test/build/gdbinit/connect
