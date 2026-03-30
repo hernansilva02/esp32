@@ -30,10 +30,8 @@ void blinker(void* pvParameters) {
         gpio_set_level(LED_GPIO, 0);
         vTaskDelay(CONFIG_FREERTOS_HZ);
     }
-    while (1) {
-        gpio_set_level(LED_GPIO, 1);
-        vTaskDelay(CONFIG_FREERTOS_HZ / 500e-3);
-    }
+    gpio_set_level(LED_GPIO, 1);
+    vTaskDelete(NULL);
 }
 
 void scanner() {
